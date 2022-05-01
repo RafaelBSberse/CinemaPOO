@@ -19,4 +19,12 @@ public class Filme {
 						   "\nDiretor: " + this.diretor +
 						   "\nAno de Lançamento: " + this.lancamento);
 	}
+	
+	public boolean comparaFilme(String nome) {
+		if(this.tituloOriginal.equals(nome)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
