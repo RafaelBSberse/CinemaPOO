@@ -1,7 +1,14 @@
-package cinema;
+package View;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Model.Filme;
+import Model.Funcionario;
+import Model.Sala;
+import Persistencia.IPersistencia;
+import Persistencia.Persistencia;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -10,7 +17,8 @@ public class InterfaceDeUsuario {
 	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	private static ArrayList<Sala> salas = new ArrayList<Sala>();
 	private static Map<String, ArrayList<Funcionario>> horariosFuncionarios = new HashMap<String, ArrayList<Funcionario>>();
-	private static Scanner leitor = new Scanner(System.in);
+	private static Scanner leitor = new Scanner(System.in);  
+	private static IPersistencia persistidor = new Persistencia();
 	
 	private static void opcoes(){
         System.out.println("\tCinema");
@@ -388,5 +396,7 @@ public class InterfaceDeUsuario {
         } while(opcao != 0);
 
         leitor.close();
+        persistidor.salvaDados(filmes, funcionarios, salas, horariosFuncionarios);
+        
     }
 }

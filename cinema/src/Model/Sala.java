@@ -1,4 +1,4 @@
-package cinema;
+package Model;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ public class Sala {
 	private int capacidade;
 	private Map<String, Filme> filmesHorarios = new HashMap<>();
 			
-	Sala(String nome, int capacidade){
+	public Sala(String nome, int capacidade){
 		this.nome = nome;
 		this.capacidade = capacidade;
 	}
@@ -37,5 +37,9 @@ public class Sala {
 		    	System.out.println(this.nome + " - " + entry.getKey());
 		    }
 		}
+	}
+	
+	public String toString() {
+		return nome + "@" + capacidade + "@" + filmesHorarios;
 	}
 }

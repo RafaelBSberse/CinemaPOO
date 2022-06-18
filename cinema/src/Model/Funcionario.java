@@ -1,4 +1,4 @@
-package cinema;
+package Model;
 
 public class Funcionario {
 	private String cpf;
@@ -6,7 +6,7 @@ public class Funcionario {
 	private String admissao;
 	private float salario;
 	
-	Funcionario(String nome, String cpf, String admissao, float salario){
+	public Funcionario(String nome, String cpf, String admissao, float salario){
 		this.nome = nome;
 		this.cpf = cpf;
 		this.admissao = admissao;
@@ -26,5 +26,9 @@ public class Funcionario {
 		} else {
 			return false;
 		}
+	}
+	
+	public String toString() {
+		return cpf + "@" + nome + "@" + admissao + "@" + salario;
 	}
 }

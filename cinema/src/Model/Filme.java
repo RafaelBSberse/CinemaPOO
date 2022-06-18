@@ -1,4 +1,4 @@
-package cinema;
+package Model;
 
 public class Filme {
 	private String tituloPT;
@@ -6,7 +6,7 @@ public class Filme {
 	private String diretor;
 	private int lancamento;
 	
-	Filme(String tituloPT, String tituloOriginal, String diretor, int lancamento){
+	public Filme(String tituloPT, String tituloOriginal, String diretor, int lancamento){
 		this.tituloPT = tituloPT;
 		this.tituloOriginal = tituloOriginal;
 		this.diretor = diretor;
@@ -26,5 +26,9 @@ public class Filme {
 		} else {
 			return false;
 		}
+	}
+	
+	public String toString() {
+		return tituloPT + "@" + tituloOriginal + "@" + diretor + "@" + lancamento;
 	}
 }

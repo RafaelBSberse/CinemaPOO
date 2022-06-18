@@ -1,4 +1,6 @@
-package cinema;
+package Main;
+
+import View.InterfaceDeUsuario;
 
 public class Index {
 
