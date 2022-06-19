@@ -24,13 +24,13 @@ public class InterfaceDeUsuario {
         System.out.println("\tCinema");
         System.out.println("1. Cadastrar Filme");
         System.out.println("2. Filmes em Cartaz");
-        System.out.println("3. Cadastrar Funcionário");
-        System.out.println("4. Mostrar Funcionários");
+        System.out.println("3. Cadastrar Funcionï¿½rio");
+        System.out.println("4. Mostrar Funcionï¿½rios");
         System.out.println("5. Cadatra Sala");
         System.out.println("6. Mostra Salas");
         System.out.println("7. Registrar Conjunto de Funcionarios de Determinado Horario.");
         System.out.println("8. Adicionar Filme em Determinado Horario em uma Sala.");
-        System.out.println("9. Consultar Sala/Horários Para Determinado Filme");
+        System.out.println("9. Consultar Sala/Horï¿½rios Para Determinado Filme");
         System.out.println("0. Sair");
         System.out.print("Opcao: ");
     }
@@ -42,7 +42,7 @@ public class InterfaceDeUsuario {
         String tituloOriginal = leitor.nextLine();
         System.out.println("Digite o Nome do Diretor: ");
         String diretor = leitor.nextLine();
-        System.out.println("Digite o Ano de Lançamento do Filme: ");
+        System.out.println("Digite o Ano de Lanï¿½amento do Filme: ");
         int ano = leitor.nextInt();
         
         filmes.add(new Filme(tituloPT, tituloOriginal, diretor, ano));        	
@@ -61,13 +61,13 @@ public class InterfaceDeUsuario {
     }
     
     private static void setFuncionarios() {
-    	System.out.println("Digite o Nome do Funcionário: ");
+    	System.out.println("Digite o Nome do Funcionï¿½rio: ");
         String nome = leitor.nextLine();
-        System.out.println("Digite o CPF do Funcionário (999.999.999-99): ");
+        System.out.println("Digite o CPF do Funcionï¿½rio (999.999.999-99): ");
         String cpf = leitor.nextLine();
-        System.out.println("Digite a Data de Admissão do Funcionário (dd/mm/YYYY): ");
+        System.out.println("Digite a Data de Admissï¿½o do Funcionï¿½rio (dd/mm/YYYY): ");
         String admissao = leitor.nextLine();
-        System.out.println("Digite o Salário do Funcionário: ");
+        System.out.println("Digite o Salï¿½rio do Funcionï¿½rio: ");
         float salario = leitor.nextFloat();
         
         funcionarios.add(new Funcionario(nome, cpf, admissao, salario));
@@ -78,7 +78,7 @@ public class InterfaceDeUsuario {
     		System.out.println("Nenhum Filme Cadastrado!\n"); 
     	} else {
     		funcionarios.forEach((n) -> {
-    			System.out.println("\tFuncionário " + (funcionarios.indexOf(n) + 1)); 
+    			System.out.println("\tFuncionï¿½rio " + (funcionarios.indexOf(n) + 1)); 
         		n.getFuncionario();
         		System.out.println(); 
         	});
@@ -126,7 +126,7 @@ public class InterfaceDeUsuario {
     		
     		System.out.println(); 
     		if(!achouFuncionario) {
-    			System.out.println("Funcionario não encontrado."); 
+    			System.out.println("Funcionario nï¿½o encontrado."); 
     			System.out.println(); 
     		}
     		
@@ -134,12 +134,12 @@ public class InterfaceDeUsuario {
     		int opcao;
     		
     		do {
-    			System.out.println("Deseja Adicionar outro funcionario?\n1. Sim\n2. Não"); 
-    			System.out.print("Opção: "); 
+    			System.out.println("Deseja Adicionar outro funcionario?\n1. Sim\n2. Nï¿½o"); 
+    			System.out.print("Opï¿½ï¿½o: "); 
         		opcao = leitor.nextInt();
         		
         		if(opcao != 1 && opcao != 2) {
-        			System.out.println("Opção Invalida."); 
+        			System.out.println("Opï¿½ï¿½o Invalida."); 
         		}
     		} while (opcao != 1 && opcao != 2);
     		
@@ -153,7 +153,7 @@ public class InterfaceDeUsuario {
     	
     	if(funcionariosSelecionados.size() < 4) {
     		System.out.println();
-    		System.out.println("Funcionarios Insuficientes (Menos do que 4 selecionados). Cancelando operação!");
+    		System.out.println("Funcionarios Insuficientes (Menos do que 4 selecionados). Cancelando operaï¿½ï¿½o!");
     	} else {
     		System.out.println();
     		String horario = "";
@@ -161,8 +161,8 @@ public class InterfaceDeUsuario {
     		leitor.nextLine();
     		
     		while(true) {
-    			System.out.println("Selecione um dos Horários: \n1. 16h\n2. 18h\n3. 20h\n4. 22h\n5. 24h"); 
-    			System.out.print("Opção: "); 
+    			System.out.println("Selecione um dos Horï¿½rios: \n1. 16h\n2. 18h\n3. 20h\n4. 22h\n5. 24h"); 
+    			System.out.print("Opï¿½ï¿½o: "); 
     			String opcao = leitor.nextLine();
     			
     			if(opcao.equalsIgnoreCase("sair")) {
@@ -195,7 +195,7 @@ public class InterfaceDeUsuario {
     			}
     			
     			if(horario.equals("")) {
-    				System.out.println("Horário Invalido. Tente novamente ou digite \"Sair\" para cancelar a operação."); 
+    				System.out.println("Horï¿½rio Invalido. Tente novamente ou digite \"Sair\" para cancelar a operaï¿½ï¿½o."); 
     			} else {
     				break;
     			}
@@ -234,7 +234,7 @@ public class InterfaceDeUsuario {
         	System.out.println(); 
         	
         	if(!achouSala) {
-        		System.out.println("Sala não encontrado. Tente novamente ou digite \"Sair\" para cancelar a operação."); 
+        		System.out.println("Sala nï¿½o encontrado. Tente novamente ou digite \"Sair\" para cancelar a operaï¿½ï¿½o."); 
         		System.out.println(); 
         	} else {
         		break;
@@ -243,7 +243,7 @@ public class InterfaceDeUsuario {
         
         if(salaSelecionada == null) {
         	System.out.println(); 
-        	System.out.println("Cancelando operação!"); 
+        	System.out.println("Cancelando operaï¿½ï¿½o!"); 
         } else {
         	while(true) {
         		System.out.print("Digite o nome Original do Filme: ");
@@ -266,7 +266,7 @@ public class InterfaceDeUsuario {
         		System.out.println(); 
         		
         		if(!achouFilme) {
-        			System.out.println("Filme não encontrado. Tente novamente ou digite \"Sair\" para cancelar a operação."); 
+        			System.out.println("Filme nï¿½o encontrado. Tente novamente ou digite \"Sair\" para cancelar a operaï¿½ï¿½o."); 
         			System.out.println(); 
         		} else {
         			break;
@@ -275,26 +275,26 @@ public class InterfaceDeUsuario {
         	
         	if(filmeSelecionado == null) {
         		System.out.println(); 
-        		System.out.println("Cancelando operação!"); 
+        		System.out.println("Cancelando operaï¿½ï¿½o!"); 
         	} else {
         		ArrayList<String> horarios = new ArrayList<>(horariosFuncionarios.keySet());
         		
         		if(horarios.size() > 0) {
         			while(true) {
-        				System.out.println("Selecione um horario (Caso o horario desejado não esteja presente, define o conjunto de funcionarios para o mesmo): ");
+        				System.out.println("Selecione um horario (Caso o horario desejado nï¿½o esteja presente, define o conjunto de funcionarios para o mesmo): ");
         				
         				for(String horario : horarios){
         					System.out.println(horarios.indexOf(horario) + ". " + horario);
         				}
         				
-        				System.out.print("Opção: ");
+        				System.out.print("Opï¿½ï¿½o: ");
         				String opcao = leitor.nextLine();
         				
         				if(horarios.get(Integer.parseInt(opcao)) != null) {
         					horarioSelecionado = horarios.get(Integer.parseInt(opcao));
         					break;
         				} else {
-        					System.out.println("Horário Invalido. Tente novamente ou digite \\\"Sair\\\" para cancelar a operação.");
+        					System.out.println("Horï¿½rio Invalido. Tente novamente ou digite \\\"Sair\\\" para cancelar a operaï¿½ï¿½o.");
         					System.out.println();
         				}
         			}
@@ -304,7 +304,7 @@ public class InterfaceDeUsuario {
         			}
         			
         		} else {
-        			System.out.print("Não há nenhum horário cadastrado. Para cadastra-los, defina o conjunto de funcionarios para o mesmo. Cancelando Operação");
+        			System.out.print("Nï¿½o hï¿½ nenhum horï¿½rio cadastrado. Para cadastra-los, defina o conjunto de funcionarios para o mesmo. Cancelando Operaï¿½ï¿½o");
         		}
         	}
         }
@@ -327,6 +327,9 @@ public class InterfaceDeUsuario {
     
     public static void menu() {
         int opcao;
+        filmes = persistidor.recuperaFilmes();
+        funcionarios = persistidor.recuperaFuncionarios();
+        persistidor.recuperaSalas();
         
         do{
             opcoes();
@@ -391,12 +394,12 @@ public class InterfaceDeUsuario {
                 break;
             
             default:
-                System.out.println("Opção inválida.");
+                System.out.println("Opï¿½ï¿½o invï¿½lida.");
             }
         } while(opcao != 0);
 
         leitor.close();
-        persistidor.salvaDados(filmes, funcionarios, salas, horariosFuncionarios);
+//        persistidor.salvaDados(filmes, funcionarios, salas, horariosFuncionarios);
         
     }
 }

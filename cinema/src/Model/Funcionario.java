@@ -1,8 +1,8 @@
 package Model;
 
 public class Funcionario {
-	private String cpf;
 	private String nome;
+	private String cpf;
 	private String admissao;
 	private float salario;
 	
@@ -16,8 +16,8 @@ public class Funcionario {
 	public void getFuncionario() {
 		System.out.println("Nome: " + this.nome +
 						   "\nCPF: " + this.cpf + 
-						   "\nData de Admissão: " + this.admissao +
-						   "\nSalário: R$" + this.salario);
+						   "\nData de Admissï¿½o: " + this.admissao +
+						   "\nSalï¿½rio: R$" + this.salario);
 	}
 	
 	public boolean comparaFuncionario(String nome) {
@@ -29,6 +29,6 @@ public class Funcionario {
 	}
 	
 	public String toString() {
-		return cpf + "@" + nome + "@" + admissao + "@" + salario;
+		return nome + "@" + cpf + "@" + admissao + "@" + salario;
 	}
 }

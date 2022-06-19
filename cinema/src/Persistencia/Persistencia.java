@@ -60,7 +60,54 @@ public class Persistencia implements IPersistencia {
 		}
 	}
 	
-	public void recuperaDados() {
+	public ArrayList<Filme> recuperaFilmes() {
+		ArrayList<Filme> filmes = new ArrayList<Filme>();
+		try {
+			BufferedReader leitor = new BufferedReader(new FileReader("filme.txt"));
+			String[] tempArrayString = new String[4];
+			
+			String linha = leitor.readLine();
+			
+			while (linha != null) {
+				tempArrayString = linha.split("@");
+				filmes.add(new Filme(tempArrayString[0], tempArrayString[1], tempArrayString[2], Integer.parseInt(tempArrayString[3])));
+				linha = leitor.readLine();
+			}
+			
+			leitor.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+		return filmes;
+	}
+	
+	public ArrayList<Funcionario> recuperaFuncionarios() {
+		ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+		try {
+			BufferedReader leitor = new BufferedReader(new FileReader("funcionario.txt"));
+			String[] tempArrayString = new String[4];
+			
+			String linha = leitor.readLine();
+			
+			while (linha != null) {
+				tempArrayString = linha.split("@");
+				funcionarios.add(new Funcionario(tempArrayString[0], tempArrayString[1], tempArrayString[2], Float.parseFloat(tempArrayString[3])));
+				linha = leitor.readLine();
+			}
+			
+			leitor.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+		return funcionarios;
+	}
+
+	public void recuperaSalas() {
+	}
+
+	public void recuperaHorarioFuncionarios() {
 		
 	}
 }

@@ -13,6 +13,12 @@ public class Sala {
 		this.capacidade = capacidade;
 	}
 	
+	public Sala(String nome, int capacidade, Map<String, Filme> filmesHorarios){
+		this.nome = nome;
+		this.capacidade = capacidade;
+		this.filmesHorarios = filmesHorarios;
+	}
+	
 	public void getSala() {
 		System.out.println("Nome: " + this.nome +
 						   "\nCapacidade: " + this.capacidade
