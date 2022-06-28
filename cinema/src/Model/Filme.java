@@ -28,6 +28,10 @@ public class Filme {
 		}
 	}
 	
+	public String getTituloOriginal() {
+		return this.tituloOriginal;
+	}
+	
 	public String toString() {
 		return tituloPT + "@" + tituloOriginal + "@" + diretor + "@" + lancamento;
 	}

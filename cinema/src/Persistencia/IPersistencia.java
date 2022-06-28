@@ -12,5 +12,6 @@ public interface IPersistencia {
 	public void salvaDados(ArrayList<Filme> filmes, ArrayList<Funcionario> funcionarios, ArrayList<Sala> salas, Map<String, ArrayList<Funcionario>> horariosFuncionarios);
 	public ArrayList<Filme> recuperaFilmes();
 	public ArrayList<Funcionario> recuperaFuncionarios(); 
+	public ArrayList<Sala> recuperaSalas(ArrayList<Filme> filmes);
 
 }

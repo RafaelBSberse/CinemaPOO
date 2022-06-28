@@ -46,6 +46,15 @@ public class Sala {
 	}
 	
 	public String toString() {
-		return nome + "@" + capacidade + "@" + filmesHorarios;
+		String filmesHorariosToString = "";
+		for ( Map.Entry<String, Filme> entry : filmesHorarios.entrySet()) {
+			filmesHorariosToString = filmesHorariosToString.concat("[" + entry.getKey() + ":" + entry.getValue().getTituloOriginal() + "],");
+		}
+		if(filmesHorariosToString != "") {
+			filmesHorariosToString = filmesHorariosToString.substring(0, filmesHorariosToString.length() - 1);
+			return nome + "@" + capacidade + "@" + filmesHorariosToString;
+		} else {
+			return nome + "@" + capacidade;		
+		}
 	}
 }

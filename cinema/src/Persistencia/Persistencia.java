@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import Model.Filme;
@@ -45,8 +46,16 @@ public class Persistencia implements IPersistencia {
 			}
 			
 			if (horariosFuncionarios.size() != 0) {
-				escreveHorarios.write(horariosFuncionarios.toString());
-				escreveHorarios.newLine();
+				String tempValue = "";
+				for ( Map.Entry<String, ArrayList<Funcionario>> entry : horariosFuncionarios.entrySet()) {
+					tempValue = entry.getKey() + "@";
+					for(Funcionario n : entry.getValue()) {
+						tempValue = tempValue.concat(n.getCpf() + ",");
+			        }
+					tempValue = tempValue.substring(0, tempValue.length() - 1);
+					escreveHorarios.write(tempValue);
+					escreveHorarios.newLine();
+				}
 				escreveHorarios.flush();
 			}
 			
@@ -104,7 +113,40 @@ public class Persistencia implements IPersistencia {
 		return funcionarios;
 	}
 
-	public void recuperaSalas() {
+	public ArrayList<Sala> recuperaSalas(ArrayList<Filme> filmes) {
+		ArrayList<Sala> salas = new ArrayList<Sala>();
+		try {
+			BufferedReader leitor = new BufferedReader(new FileReader("sala.txt"));
+			String[] tempArrayString = new String[3];
+			
+			String linha = leitor.readLine();
+			
+			while (linha != null) {
+				tempArrayString = linha.split("@");
+				if(tempArrayString.length > 2) {
+					Map<String, Filme> filmesHorarios = new HashMap<>();
+					for(String s: tempArrayString[2].split(",")) {
+						String tempValue = s.substring(1, s.length() - 1);;
+						for(Filme f: filmes) {
+							if(f.comparaFilme(tempValue.split(":")[1])) {
+								filmesHorarios.put(tempValue.split(":")[0], f);
+							}
+						}
+					}
+					salas.add(new Sala(tempArrayString[0], Integer.parseInt(tempArrayString[1]), filmesHorarios));
+				} else {
+					salas.add(new Sala(tempArrayString[0], Integer.parseInt(tempArrayString[1])));
+				}
+				linha = leitor.readLine();
+			}
+			
+			leitor.close();
+			
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		return salas;
 	}
 
 	public void recuperaHorarioFuncionarios() {

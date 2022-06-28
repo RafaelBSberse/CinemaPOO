@@ -20,6 +20,10 @@ public class Funcionario {
 						   "\nSal�rio: R$" + this.salario);
 	}
 	
+	public String getCpf() {
+		return this.cpf;
+	}
+	
 	public boolean comparaFuncionario(String nome) {
 		if(this.nome.equals(nome)) {
 			return true;

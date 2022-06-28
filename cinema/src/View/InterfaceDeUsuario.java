@@ -329,7 +329,7 @@ public class InterfaceDeUsuario {
         int opcao;
         filmes = persistidor.recuperaFilmes();
         funcionarios = persistidor.recuperaFuncionarios();
-        persistidor.recuperaSalas();
+        salas = persistidor.recuperaSalas(filmes);
         
         do{
             opcoes();
@@ -399,7 +399,7 @@ public class InterfaceDeUsuario {
         } while(opcao != 0);
 
         leitor.close();
-//        persistidor.salvaDados(filmes, funcionarios, salas, horariosFuncionarios);
+        //persistidor.salvaDados(filmes, funcionarios, salas, horariosFuncionarios);
         
     }
 }
