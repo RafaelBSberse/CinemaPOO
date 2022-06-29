@@ -50,7 +50,7 @@ public class Persistencia implements IPersistencia {
 				for ( Map.Entry<String, ArrayList<Funcionario>> entry : horariosFuncionarios.entrySet()) {
 					tempValue = entry.getKey() + "@";
 					for(Funcionario n : entry.getValue()) {
-						tempValue = tempValue.concat(n.getCpf() + ",");
+						tempValue = tempValue.concat(n.getNome() + ",");
 			        }
 					tempValue = tempValue.substring(0, tempValue.length() - 1);
 					escreveHorarios.write(tempValue);
@@ -149,7 +149,34 @@ public class Persistencia implements IPersistencia {
 		return salas;
 	}
 
-	public void recuperaHorarioFuncionarios() {
-		
+	public Map<String, ArrayList<Funcionario>> recuperaHorarioFuncionarios(ArrayList<Funcionario> funcionarios) {
+		Map<String, ArrayList<Funcionario>> horariosFuncionarios = new HashMap<String, ArrayList<Funcionario>>();
+		try {
+			BufferedReader leitor = new BufferedReader(new FileReader("horarios.txt"));
+			String[] tempArrayString = new String[2];
+			
+			String linha = leitor.readLine();
+			
+			while (linha != null) {
+				tempArrayString = linha.split("@");
+				ArrayList<Funcionario> tempFuncionarios = new ArrayList<Funcionario>();
+				for(String s: tempArrayString[1].split(",")) {
+					for(Funcionario f: funcionarios) {
+						if(f.comparaFuncionario(s)) {
+							tempFuncionarios.add(f);
+						}
+					}
+				}
+				horariosFuncionarios.put(tempArrayString[0], tempFuncionarios);
+				linha = leitor.readLine();
+			}
+			
+			leitor.close();
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+		return horariosFuncionarios;
 	}
+	
 }

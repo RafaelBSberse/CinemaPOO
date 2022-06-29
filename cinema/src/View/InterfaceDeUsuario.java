@@ -330,6 +330,7 @@ public class InterfaceDeUsuario {
         filmes = persistidor.recuperaFilmes();
         funcionarios = persistidor.recuperaFuncionarios();
         salas = persistidor.recuperaSalas(filmes);
+        horariosFuncionarios = persistidor.recuperaHorarioFuncionarios(funcionarios);
         
         do{
             opcoes();

@@ -13,5 +13,5 @@ public interface IPersistencia {
 	public ArrayList<Filme> recuperaFilmes();
 	public ArrayList<Funcionario> recuperaFuncionarios(); 
 	public ArrayList<Sala> recuperaSalas(ArrayList<Filme> filmes);
-
+	public Map<String, ArrayList<Funcionario>> recuperaHorarioFuncionarios(ArrayList<Funcionario> funcionarios);
 }
