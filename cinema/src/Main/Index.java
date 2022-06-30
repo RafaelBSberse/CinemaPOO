@@ -5,7 +5,8 @@ import View.InterfaceDeUsuario;
 public class Index {
 
 	public static void main(String[] args) {
-		InterfaceDeUsuario.menu();
+		InterfaceDeUsuario interfaceDeUsuario = new InterfaceDeUsuario();
+		interfaceDeUsuario.menu();
 	}
 
 }
