@@ -1,6 +1,7 @@
 package View;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import Exceptions.ExcecaoDeNomeJaExistenteFilme;
@@ -33,6 +34,7 @@ public class InterfaceDeUsuario {
         System.out.println("7. Registrar Conjunto de Funcionarios de Determinado Horario.");
         System.out.println("8. Adicionar Filme em Determinado Horario em uma Sala.");
         System.out.println("9. Consultar Sala/Hor�rios Para Determinado Filme");
+        System.out.println("10. Ordenar");
         System.out.println("0. Sair");
         System.out.print("Opcao: ");
     }
@@ -115,6 +117,17 @@ public class InterfaceDeUsuario {
             case 9:
             	leitor.nextLine();
             	dados.getFilmeHorarioSala();
+            	System.out.println();
+                break;
+                
+            case 10:
+            	leitor.nextLine();
+            	System.out.println("\tEscolha uma das opcoes para ordenar: ");
+            	System.out.println("1. Funcionarios por salario (Decrescente)");
+            	System.out.println("2. Filmes por data de lancamento (Crescente)");
+            	System.out.println("3. Salas por capacidade (Decrescente)");
+            	int opcaoOrdenacao = leitor.nextInt();
+            	dados.ordenar(opcaoOrdenacao);
             	System.out.println();
                 break;
             

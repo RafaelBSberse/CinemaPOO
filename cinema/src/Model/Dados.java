@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -330,5 +331,20 @@ public class Dados implements IDados {
     
     public void salvarDados() {
     	persistidor.salvaDados(filmes, funcionarios, salas, horariosFuncionarios);
+    }
+    
+    public void ordenar(int opcaoOrdenacao) {
+    	if(opcaoOrdenacao == 2) {
+    		Collections.sort(filmes);
+    		System.out.println("Filmes Ordenados!");
+    	} else if(opcaoOrdenacao == 1) {
+    		Collections.sort(funcionarios);   
+    		System.out.println("Funcionarios Ordenados!");
+    	} else if(opcaoOrdenacao == 3) {
+    		Collections.sort(salas);
+    		System.out.println("Salas Ordenadas!");
+    	} else {
+    		System.out.println("Valor Invalido.");
+    	}
     }
 }

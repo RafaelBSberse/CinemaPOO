@@ -1,6 +1,6 @@
 package Model;
 
-public class Funcionario {
+public class Funcionario implements Comparable<Funcionario> {
 	private String nome;
 	private String cpf;
 	private String admissao;
@@ -32,7 +32,16 @@ public class Funcionario {
 		}
 	}
 	
+	public float getSalario() {
+		return this.salario;
+	}
+	
 	public String toString() {
 		return nome + "@" + cpf + "@" + admissao + "@" + salario;
+	}
+
+	@Override
+	public int compareTo(Funcionario o) {
+		return this.salario > o.getSalario() ? 1 : -1;
 	}
 }

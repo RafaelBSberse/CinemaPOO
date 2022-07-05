@@ -3,7 +3,7 @@ package Model;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Sala {
+public class Sala implements Comparable<Sala> {
 	private String nome;
 	private int capacidade;
 	private Map<String, Filme> filmesHorarios = new HashMap<>();
@@ -45,6 +45,10 @@ public class Sala {
 		}
 	}
 	
+	public int getCapacidade() {
+		return this.capacidade;
+	}
+	
 	public String toString() {
 		String filmesHorariosToString = "";
 		for ( Map.Entry<String, Filme> entry : filmesHorarios.entrySet()) {
@@ -56,5 +60,10 @@ public class Sala {
 		} else {
 			return nome + "@" + capacidade;		
 		}
+	}
+
+	@Override
+	public int compareTo(Sala o) {
+		return this.capacidade > o.getCapacidade() ? 1 : -1;
 	}
 }

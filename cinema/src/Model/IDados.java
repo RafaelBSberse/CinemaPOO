@@ -18,4 +18,5 @@ public interface IDados {
 	public void addFilmeNaSala();
 	public void getFilmeHorarioSala();
 	public void salvarDados();
+	public void ordenar(int opcaoOrdenacao);
 }

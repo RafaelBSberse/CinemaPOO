@@ -1,6 +1,6 @@
 package Model;
 
-public class Filme {
+public class Filme implements Comparable<Filme> {
 	private String tituloPT;
 	private String tituloOriginal;
 	private String diretor;
@@ -32,7 +32,16 @@ public class Filme {
 		return this.tituloOriginal;
 	}
 	
+	public int getLancamento() {
+		return this.lancamento;
+	}
+	
 	public String toString() {
 		return tituloPT + "@" + tituloOriginal + "@" + diretor + "@" + lancamento;
+	}
+
+	@Override
+	public int compareTo(Filme o) {
+		return this.lancamento < o.getLancamento() ? 1 : -1;
 	}
 }
